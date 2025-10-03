@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
     // Fetch LIVE data from the sheet - updates automatically when sheet changes
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: SHEET_ID,
-      range: 'Sheet1!A:C', // Gets all data from columns A, B, C
+      range: 'Main!A:C', // Gets all data from columns A, B, C
     });
 
     const rows = response.data.values;
