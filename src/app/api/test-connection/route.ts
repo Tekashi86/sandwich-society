@@ -45,7 +45,7 @@ export async function GET() {
     // Then try to get the actual data
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: SHEET_ID,
-      range: 'Sheet1!A:C',
+      range: 'Main!A:C',
     });
 
     return NextResponse.json({
