@@ -98,6 +98,17 @@ export default function Home() {
     "Redemption requests must be submitted through your leader / Marketers' PA"
   ];
 
+  const weeklyTermsConditions = [
+    "Only new direct referrals' first contract will count.",
+    "Eligible contracts: 30-day and 100-day only.",
+    "Terminated contracts will not be counted.",
+    "The leaderboard and points will reset every Monday 00:00 HKT.",
+    "Rewards are given based only on the total contract amount accumulated within the week.",
+    "Contracts will be distributed to qualified leaders within 72 hours after weekly closing.",
+    "Minimum $1,000 total weekly sales required to qualify for leaderboard rewards.",
+    "In case of a tie, ranking will be decided by who achieved the sales target first (timestamp priority)."
+  ];
+
   const renderAboutSection = () => (
     <div className="container mx-auto px-4 py-12">
       <Card className="bg-gray-900/50 border-gray-800 max-w-4xl mx-auto">
@@ -222,10 +233,8 @@ export default function Home() {
         </Card>
       </section>
 
-      {/* Rewards Section */}
-      <section>
-        <h2 className="text-3xl font-bold text-white text-center mb-8">Redeemable Rewards</h2>
-
+     {/* All-Time Rewards & Terms Section */}
+      <section className="mb-16">
         <div className="grid lg:grid-cols-2 gap-8">
           {/* All-Time Rewards */}
           <Card className="bg-gray-900/50 border-gray-800">
@@ -246,6 +255,30 @@ export default function Home() {
             </CardContent>
           </Card>
 
+          {/* Terms & Conditions */}
+          <Card className="bg-gray-900/50 border-gray-800">
+            <CardHeader>
+              <CardTitle className="text-xl text-white">Terms & Conditions</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {termsConditions.map((term, index) => (
+                  <div key={index} className="flex items-start gap-3 p-3 bg-gray-800/20 rounded-lg border border-gray-700/30">
+                    <div className="bg-gray-700 text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs">
+                      {index + 1}
+                    </div>
+                    <p className="text-gray-300 text-sm flex-1">{term}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Weekly Rewards & Weekly Terms Section */}
+      <section className="mb-16">
+        <div className="grid lg:grid-cols-2 gap-8">
           {/* Weekly Rewards */}
           <Card className="bg-gray-900/50 border-gray-800">
             <CardHeader>
@@ -259,6 +292,25 @@ export default function Home() {
                       {reward.points} pts
                     </Badge>
                     <span className="text-gray-300">{reward.reward}</span>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Weekly Terms & Conditions */}
+          <Card className="bg-gray-900/50 border-gray-800">
+            <CardHeader>
+              <CardTitle className="text-xl text-white">Weekly Terms & Conditions</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {weeklyTermsConditions.map((term, index) => (
+                  <div key={index} className="flex items-start gap-3 p-3 bg-gray-800/20 rounded-lg border border-gray-700/30">
+                    <div className="bg-gray-700 text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs">
+                      {index + 1}
+                    </div>
+                    <p className="text-gray-300 text-sm flex-1">{term}</p>
                   </div>
                 ))}
               </div>
@@ -293,27 +345,6 @@ export default function Home() {
                 <div>• 30-day contract = 1 pt</div>
                 <div>• 100-day contract = 3 pts</div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
-      </section>
-
-      {/* Terms & Conditions */}
-      <section>
-        <Card className="bg-gray-900/50 border-gray-800">
-          <CardHeader>
-            <CardTitle className="text-3xl text-white text-center">Terms & Conditions</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              {termsConditions.map((term, index) => (
-                <div key={index} className="flex items-start gap-3 p-3 bg-gray-800/20 rounded-lg border border-gray-700/30">
-                  <div className="bg-gray-700 text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs">
-                    {index + 1}
-                  </div>
-                  <p className="text-gray-300 text-sm flex-1">{term}</p>
-                </div>
-              ))}
             </div>
           </CardContent>
         </Card>
